@@ -6,15 +6,15 @@ public class RockPaperScissors {
         Scanner keyboard;
 
 
-        int paper;
-        int rock;
-        int scissors;
+
         int userPicked;
         int computerNumber;
         String again;
-        rock=1;
-        paper=2;
-        scissors=3;
+        int computerScore;
+        int playerScore;
+        computerScore = 0;
+        playerScore = 0;
+
 
 
         keyboard = new Scanner(System.in);
@@ -23,7 +23,16 @@ public class RockPaperScissors {
             System.out.println("What would you like to choose first?");
             userPicked = keyboard.nextInt();
             computerNumber = (int)(Math.random() * 3)+1;
-            System.out.println(computerNumber);
+
+            if (computerNumber==1){
+                System.out.println("I chose rock.");
+            }
+            else if (computerNumber==2){
+                System.out.println("I chose paper.");
+            }
+            else if (computerNumber==3){
+                System.out.println("I chose scissors.");
+            }
             again = "";
 
 
@@ -32,6 +41,7 @@ public class RockPaperScissors {
             }
             else if (userPicked==1 && computerNumber==2){
                 System.out.println("Haha! I win!");
+
             }
             else if (userPicked==1 && computerNumber==3){
                 System.out.println("Aww, you win this time.");
@@ -53,12 +63,22 @@ public class RockPaperScissors {
 
 
 
-
+            System.out.println("Your score is "+ playerScore+ "while mine is "+ computerScore+ ".");
             System.out.println("Would you like to play again? (yes or no)");
             again = keyboard.next().toLowerCase();
 
         }while (again.equals("yes"));
-        System.out.println("Oh well I didn't like you anyways.");
+        System.out.println("Your final score is " +playerScore+ " while, my score is "+ computerScore+".");
+        if (playerScore==computerScore){
+        System.out.println("It is a tie between use over all!");
+        }
+        else if (playerScore<computerScore){
+            System.out.println("Haha, I won is the long run!");
+        }
+        else if (playerScore>computerScore){
+            System.out.println("The only way you beat me is because you cheated.");
+        }
+        System.out.println("Bye nerd.");
 
 
     }
